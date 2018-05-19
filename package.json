@@ -1,0 +1,39 @@
+{
+  "name": "rokkin-recipes",
+  "description": "recipe book coding challenge for rokkincat",
+  "version": "0.0.0",
+  "author": "Sean Lang <slang800@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/slang800/rokkin-recipes/issues"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "homepage": "https://github.com/slang800/rokkin-recipes#readme",
+  "license": "GPL-3.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slang800/rokkin-recipes.git"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  }
+}
