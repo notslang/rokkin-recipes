@@ -1,2 +1,3 @@
 # rokkin-recipes
-recipe book coding challenge for rokkincat
+
+A recipe book themed coding challenge for RokkinCat's internship interview. This is built with React.js and Webpack.
