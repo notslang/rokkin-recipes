@@ -4,6 +4,7 @@ import {Component} from 'react'
 import uuid from 'uuid/v4'
 import sortBy from 'lodash.sortby'
 import find from 'lodash.find'
+import filter from 'lodash.filter'
 
 import {store, load} from './utils'
 import FILLER_CONTENT from './filler-content'
@@ -64,8 +65,23 @@ class RecipeBook extends Component {
     this.handleChange()
   }
 
+  newRecipe () {
+    this.addRecipe(
+      'Untitled Recipe',
+      0,
+      'Add description here...',
+      [],
+      'Add instructions here...'
+    )
+  }
+
   getRecipeById (id) {
     return find(this.recipes, {id: id})
+  }
+
+  deleteRecipeById (id) {
+    this.recipes = filter(this.recipes, (r) => (r.id !== id))
+    this.handleChange()
   }
 
   /**
