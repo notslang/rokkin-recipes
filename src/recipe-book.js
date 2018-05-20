@@ -63,10 +63,11 @@ class RecipeBook extends Component {
     }
     this.recipes = orderBy(this.recipes.concat(newRecipe), 'timeAdded', 'desc')
     this.handleChange()
+    return newRecipe
   }
 
   newRecipe () {
-    this.addRecipe(
+    return this.addRecipe(
       'Untitled Recipe',
       0,
       'Add description here...',

@@ -1,9 +1,14 @@
 'use strict'
 import React, {Component} from 'react'
-
 import {NavLink} from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 class RecipeIndex extends Component {
+  handleNew () {
+    var recipe = this.props.model.newRecipe()
+    this.props.history.push('/' + recipe.id)
+  }
+
   render () {
     var {model} = this.props
 
@@ -20,7 +25,7 @@ class RecipeIndex extends Component {
     return (
       <ul>
         <li>
-          <button onClick={() => model.newRecipe()}>
+          <button onClick={() => this.handleNew()}>
             new recipe
           </button>
         </li>
@@ -30,4 +35,4 @@ class RecipeIndex extends Component {
   }
 }
 
-export default RecipeIndex
+export default withRouter(RecipeIndex)
