@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 var path = require('path')
 
 module.exports = {
@@ -17,6 +18,15 @@ module.exports = {
         }
       },
       {
+        test: /\.styl$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            'css-loader',
+            'stylus-loader'
+          ]
+        })
+      },
+      {
         test: /\.html$/,
         use: [
           {
@@ -30,9 +40,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      inlineSource: '.(js|css)$' // embed all javascript and css inline
+      inlineSource: '.(js|css|styl)$' // embed all javascript and css inline
     }),
-    new HtmlWebpackInlineSourcePlugin()
+    new HtmlWebpackInlineSourcePlugin(),
+    new ExtractTextPlugin('index.css')
   ],
   devtool: 'source-map',
   devServer: {

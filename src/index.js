@@ -7,6 +7,8 @@ import RecipeBook from './recipe-book'
 import Recipe from './recipe'
 import RecipeEditor from './recipe-editor'
 
+require('./index.styl')
+
 var model = new RecipeBook()
 
 const getRecipe = ({ match }) => {

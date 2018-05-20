@@ -23,7 +23,7 @@ class RecipeIndex extends Component {
     ), this)
 
     return (
-      <ul>
+      <ul id='recipe-index'>
         <li>
           <button onClick={() => this.handleNew()}>
             new recipe
