@@ -6,7 +6,7 @@ import {withRouter} from 'react-router'
 class RecipeIndex extends Component {
   handleNew () {
     var recipe = this.props.model.newRecipe()
-    this.props.history.push('/' + recipe.id)
+    this.props.history.push('/edit/' + recipe.id)
   }
 
   render () {

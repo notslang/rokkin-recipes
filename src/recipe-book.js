@@ -66,6 +66,13 @@ class RecipeBook extends Component {
     return newRecipe
   }
 
+  updateRecipe (updatedRecipe) {
+    this.recipes = this.recipes.map((recipe) => {
+      return updatedRecipe.id === recipe.id ? updatedRecipe : recipe
+    })
+    this.handleChange()
+  }
+
   newRecipe () {
     return this.addRecipe(
       'Untitled Recipe',

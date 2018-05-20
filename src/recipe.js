@@ -1,5 +1,6 @@
 'use strict'
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class Recipe extends Component {
   render () {
@@ -12,6 +13,7 @@ class Recipe extends Component {
     ))
     return (
       <div className='recipe'>
+        <Link to={'/edit/' + recipe.id}>edit</Link>
         <h1>{recipe.name}</h1>
         <p>Recipe added {new Date(recipe.timeAdded * 1000).toLocaleString()}</p>
         <h2>Description</h2>

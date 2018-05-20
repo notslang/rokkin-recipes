@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import RecipeIndex from './recipe-index'
 import RecipeBook from './recipe-book'
 import Recipe from './recipe'
+import RecipeEditor from './recipe-editor'
 
 var model = new RecipeBook()
 
@@ -16,11 +17,22 @@ const getRecipe = ({ match }) => {
   return <p>not found</p>
 }
 
+const getRecipeEditor = ({ match }) => {
+  var recipe = model.getRecipeById(match.params.id)
+  if (typeof recipe !== 'undefined') {
+    return <RecipeEditor model={model} recipe={recipe} />
+  }
+  return <p>editor not found</p>
+}
+
 const App = () => (
   <Router>
     <div>
       <RecipeIndex model={model} />
-      <Route path='/:id' component={getRecipe} />
+      <Switch>
+        <Route path='/edit/:id' component={getRecipeEditor} />
+        <Route path='/:id' component={getRecipe} />
+      </Switch>
     </div>
   </Router>
 )
