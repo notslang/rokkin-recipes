@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 
 class Recipe extends Component {
   render () {
-    var recipe = this.props.recipe
+    var {recipe} = this.props
     var ingredients = recipe.ingredients.map((ingredient, i) => (
       <li key={i}>{ingredient.name}</li>
     ))

@@ -6,7 +6,7 @@ import RecipeIndex from './recipe-index'
 import RecipeBook from './recipe-book'
 import Recipe from './recipe'
 
-var model = new RecipeBook('')
+var model = new RecipeBook()
 
 const getRecipe = ({ match }) => {
   var recipe = model.getRecipeById(match.params.id)
@@ -20,7 +20,6 @@ const App = () => (
   <Router>
     <div>
       <RecipeIndex model={model} />
-
       <Route path='/:id' component={getRecipe} />
     </div>
   </Router>
