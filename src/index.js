@@ -12,7 +12,7 @@ const getRecipe = ({ match }) => {
   for (let recipe of model.recipes) {
     if (recipe.id === match.params.id) {
       return (
-        <Recipe key={recipe.id} data={recipe} />
+        <Recipe key={recipe.id} recipe={recipe} />
       )
     }
   }
