@@ -13,10 +13,9 @@ class Recipe extends Component {
     return (
       <div className='recipe'>
         <h1>{recipe.name}</h1>
-        <ul>
-          <li>id: {recipe.id}</li>
-          <li>description: {recipe.description}</li>
-        </ul>
+        <p>Recipe added {new Date(recipe.timeAdded * 1000).toLocaleString()}</p>
+        <h2>Description</h2>
+        <p>{recipe.description}</p>
         <h2>Ingredients</h2>
         <ul>
           {ingredients}
