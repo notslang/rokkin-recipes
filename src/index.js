@@ -9,14 +9,11 @@ import Recipe from './recipe'
 var model = new RecipeBook('')
 
 const getRecipe = ({ match }) => {
-  for (let recipe of model.recipes) {
-    if (recipe.id === match.params.id) {
-      return <Recipe recipe={recipe} />
-    }
+  var recipe = model.getRecipeById(match.params.id)
+  if (typeof recipe !== 'undefined') {
+    return <Recipe recipe={recipe} />
   }
-  return (
-    <p>not found</p>
-  )
+  return <p>not found</p>
 }
 
 const App = () => (

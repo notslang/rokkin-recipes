@@ -2,6 +2,8 @@
 
 import {Component} from 'react'
 import uuid from 'uuid/v4'
+import sortBy from 'lodash.sortby'
+import find from 'lodash.find'
 
 import {store, load} from './utils'
 import FILLER_CONTENT from './filler-content'
@@ -58,8 +60,12 @@ class RecipeBook extends Component {
       ingredients: ingredients,
       instructions: instructions
     }
-    this.recipes = this.recipes.concat(newRecipe)
+    this.recipes = sortBy(this.recipes.concat(newRecipe), 'timeAdded')
     this.handleChange()
+  }
+
+  getRecipeById (id) {
+    return find(this.recipes, {id: id})
   }
 
   /**
