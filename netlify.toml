@@ -1,0 +1,8 @@
+# handle netlify configuration for single page apps. the real navigation is done
+# in JS on the client side... the server always returns the same page, no matter
+# what the URL is.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
