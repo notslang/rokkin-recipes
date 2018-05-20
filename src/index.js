@@ -11,9 +11,7 @@ var model = new RecipeBook('')
 const getRecipe = ({ match }) => {
   for (let recipe of model.recipes) {
     if (recipe.id === match.params.id) {
-      return (
-        <Recipe key={recipe.id} recipe={recipe} />
-      )
+      return <Recipe recipe={recipe} />
     }
   }
   return (
