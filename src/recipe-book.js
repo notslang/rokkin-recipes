@@ -2,7 +2,7 @@
 
 import {Component} from 'react'
 import uuid from 'uuid/v4'
-import sortBy from 'lodash.sortby'
+import orderBy from 'lodash.orderby'
 import find from 'lodash.find'
 import filter from 'lodash.filter'
 
@@ -61,7 +61,7 @@ class RecipeBook extends Component {
       ingredients: ingredients,
       instructions: instructions
     }
-    this.recipes = sortBy(this.recipes.concat(newRecipe), 'timeAdded')
+    this.recipes = orderBy(this.recipes.concat(newRecipe), 'timeAdded', 'desc')
     this.handleChange()
   }
 
