@@ -19,12 +19,12 @@ class RecipeIndex extends Component {
 
     return (
       <ul>
-        {recipes}
         <li>
           <button onClick={() => model.newRecipe()}>
             new recipe
           </button>
         </li>
+        {recipes}
       </ul>
     )
   }
