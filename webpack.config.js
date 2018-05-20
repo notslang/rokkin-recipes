@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
 var path = require('path')
 
 module.exports = {
@@ -28,8 +29,10 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html'
-    })
+      filename: './index.html',
+      inlineSource: '.(js|css)$' // embed all javascript and css inline
+    }),
+    new HtmlWebpackInlineSourcePlugin()
   ],
   devtool: 'source-map',
   devServer: {
