@@ -3,12 +3,12 @@
 import {Component} from 'react'
 import uuid from 'uuid/v4'
 
-// import {store, load} from './utils'
+import {store, load} from './utils'
 import FILLER_CONTENT from './filler-content'
 
 // store all the recipes under a single key in localstorage... for simplicitly,
 // not performance
-// const LOCALSTORAGE_KEY = 'rokkin-recipes'
+const LOCALSTORAGE_KEY = 'rokkin-recipes'
 
 /**
  * Holds a list of Recipes and handles storing them in localstorage
@@ -17,13 +17,18 @@ import FILLER_CONTENT from './filler-content'
 class RecipeBook extends Component {
   constructor () {
     super()
-    this.recipes = []
     this.onChange = null // function to call when data is updated
-
-    for (let recipe of FILLER_CONTENT) {
-      let name, servings, description, ingredients, instructions
-      ({name, servings, description, ingredients, instructions} = recipe)
-      this.addRecipe(name, servings, description, ingredients, instructions)
+    this.recipes = []
+    var savedRecipes = load(LOCALSTORAGE_KEY)
+    if (savedRecipes === null) {
+      // load some filler content so new users don't have an empty application
+      for (let recipe of FILLER_CONTENT) {
+        let name, servings, description, ingredients, instructions
+        ({name, servings, description, ingredients, instructions} = recipe)
+        this.addRecipe(name, servings, description, ingredients, instructions)
+      }
+    } else {
+      this.recipes = savedRecipes
     }
   }
 
@@ -70,7 +75,7 @@ class RecipeBook extends Component {
    * Called to handle any change to the data.
    */
   handleChange () {
-    // store(LOCALSTORAGE_KEY, this.recipes)
+    store(LOCALSTORAGE_KEY, this.recipes)
     if (this.onChange !== null) this.onChange()
   }
 }
