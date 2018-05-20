@@ -15,7 +15,7 @@ class RecipeEditor extends Component {
     var {recipe} = this.props
     return (
       <div className='recipe'>
-        <Link to={'/edit/' + recipe.id}>edit</Link>
+        <Link to={'/' + recipe.id}>close editor</Link>
         <form className='recipe-editor'>
           <label>
             Name:
