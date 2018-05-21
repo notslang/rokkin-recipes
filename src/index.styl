@@ -5,22 +5,23 @@ html, body, #app, #app > div
   margin: 0
   padding: 0
 
-#recipe
-  margin: 0 10px
-
 #recipe-editor label
   display: block
 
 #app > div
   display: flex
 
+#recipe, #recipe-index
+  height: 100%
+  overflow-y: scroll
+
+#recipe
+  padding: 0 10px
+
 #recipe-index
   list-style-type: none
   padding: 0
   margin: 0
-  height: 100%
-  overflow-y: scroll
-  overflow-x: auto
   flex-shrink: 0
 
   li
@@ -57,7 +58,7 @@ html, body, #app, #app > div
         transition: background-color 0.5s ease
 
     #new-recipe
-      width: 100%
+      width: 200px
       text-align: left
 
     button.delete
