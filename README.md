@@ -16,6 +16,9 @@ I started out with designing the data model for an individual recipe, based on t
   // human readable recipe name (title)
   name: "Recipe Name",
 
+  // timestamp to keep track of when the recipe was added
+  timeAdded: 1500000000,
+
   // like 1 paragraph that says what the recipe is in more detail
   description: "A long description for the recipe...",
 
