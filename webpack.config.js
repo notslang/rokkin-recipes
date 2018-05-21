@@ -27,6 +27,10 @@ module.exports = {
         })
       },
       {
+        test: /\.svg$/,
+        loader: 'url-loader'
+      },
+      {
         test: /\.html$/,
         use: [
           {

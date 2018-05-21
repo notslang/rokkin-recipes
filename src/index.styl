@@ -1,5 +1,13 @@
 active-color = #4d90f0
 
+html, body, #app, #app > div
+  height: 100%
+  margin: 0
+  padding: 0
+
+#recipe
+  margin: 0 10px
+
 #recipe-editor label
   display: block
 
@@ -10,6 +18,10 @@ active-color = #4d90f0
   list-style-type: none
   padding: 0
   margin: 0
+  height: 100%
+  overflow-y: scroll
+  overflow-x: auto
+  flex-shrink: 0
 
   li
     border-bottom: 1px #ccc solid
@@ -25,16 +37,33 @@ active-color = #4d90f0
       box-sizing: content-box
 
     a
+      border-width = 3px
       white-space: nowrap
       width: 200px
       overflow: hidden
       text-overflow: ellipsis
-      border-left: transparent 2px solid
+      border-left: transparent border-width solid
 
       &.active
-        border-left: active-color 2px solid
+        border-left: active-color border-width solid
 
     button
       background: transparent
       border: none
       cursor: pointer
+
+    button:hover, a:hover
+        background-color: #ccc
+        transition: background-color 0.5s ease
+
+    #new-recipe
+      width: 100%
+      text-align: left
+
+    button.delete
+      font-size: 0 // hide the "delete" text
+      background-image: url('./icon/trash.svg')
+      background-repeat: no-repeat
+      background-position: center
+      background-size: 15px
+      min-width: 30px

@@ -16,7 +16,7 @@ class RecipeIndex extends Component {
     var recipes = model.recipes.map((recipe) => (
       <li key={recipe.id}>
         <NavLink to={'/' + recipe.id} activeClassName='active'>{recipe.name}</NavLink>
-        <button onClick={() => model.deleteRecipeById(recipe.id)}>
+        <button className='delete' onClick={() => model.deleteRecipeById(recipe.id)}>
           delete
         </button>
       </li>
@@ -25,7 +25,7 @@ class RecipeIndex extends Component {
     return (
       <ul id='recipe-index'>
         <li>
-          <button onClick={() => this.handleNew()}>
+          <button id='new-recipe' onClick={() => this.handleNew()}>
             new recipe
           </button>
         </li>
