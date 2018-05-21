@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const Recipe = ({recipe}) => {
   var ingredients = recipe.ingredients.map((ingredient, i) => (
-    <li key={i}>{ingredient.name}</li>
+    <li key={ingredient.id}>{ingredient.name}</li>
   ))
   var instructions = recipe.instructions.split('\n').map((step, i) => (
     <p key={i}>{step}</p>

@@ -5,6 +5,7 @@ import uuid from 'uuid/v4'
 import orderBy from 'lodash.orderby'
 import find from 'lodash.find'
 import filter from 'lodash.filter'
+import clone from 'lodash.clone'
 
 import {store, load} from './utils'
 import FILLER_CONTENT from './filler-content'
@@ -58,18 +59,24 @@ class RecipeBook extends Component {
       name: name,
       description: description,
       servings: servings,
-      ingredients: ingredients,
+      ingredients: [],
       instructions: instructions
     }
+
     this.recipes = orderBy(this.recipes.concat(newRecipe), 'timeAdded', 'desc')
+
+    // use the addIngredient function so the ids are generated... reduce the
+    // size of filler-content.json
+    ingredients.map(this.addIngredient.bind(this, newRecipe.id))
+
     this.handleChange()
     return newRecipe
   }
 
   updateRecipe (updatedRecipe) {
-    this.recipes = this.recipes.map((recipe) => {
-      return updatedRecipe.id === recipe.id ? updatedRecipe : recipe
-    })
+    this.recipes = this.recipes.map((recipe) => (
+      updatedRecipe.id === recipe.id ? updatedRecipe : recipe
+    ))
     this.handleChange()
   }
 
@@ -96,6 +103,53 @@ class RecipeBook extends Component {
     }
 
     this.recipes = filter(this.recipes, (r) => (r.id !== id))
+    this.handleChange()
+  }
+
+  addIngredient (id, ingredientName) {
+    // addressing ingredients by an id makes it easy to use react keys
+    var ingredient = {
+      id: uuid().substr(0, 7),
+      name: ingredientName
+    }
+
+    this.recipes = this.recipes.map((recipe) => {
+      if (id !== recipe.id) {
+        return recipe
+      }
+      var newRecipe = clone(recipe)
+      newRecipe.ingredients = recipe.ingredients.concat(ingredient)
+      return newRecipe
+    })
+    this.handleChange()
+  }
+
+  updateIngredient (id, updatedIngredient) {
+    this.recipes = this.recipes.map((recipe) => {
+      if (id !== recipe.id) {
+        return recipe
+      }
+      var newRecipe = clone(recipe)
+      newRecipe.ingredients = recipe.ingredients.map((ingredient) => (
+        updatedIngredient.id === ingredient.id ? updatedIngredient : ingredient
+      ))
+      return newRecipe
+    })
+    this.handleChange()
+  }
+
+  deleteIngredient (id, ingredientId) {
+    this.recipes = this.recipes.map((recipe) => {
+      if (id !== recipe.id) {
+        return recipe
+      }
+      var newRecipe = clone(recipe)
+      newRecipe.ingredients = filter(
+        recipe.ingredients,
+        (ingredient) => (ingredient.id !== ingredientId)
+      )
+      return newRecipe
+    })
     this.handleChange()
   }
 
