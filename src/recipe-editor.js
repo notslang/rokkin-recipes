@@ -35,11 +35,13 @@ class RecipeEditor extends Component {
     var {recipe} = this.props
     var ingredients = recipe.ingredients.map((ingredient, i) => {
       return (
-        <label key={ingredient.id}>
-          Name:
-          <input type='text' value={ingredient.name} onChange={this.handleIngredientChange.bind(this, ingredient.id)} />
-          <input type='button' onClick={this.deleteIngredient.bind(this, ingredient.id)} value='delete' />
-        </label>
+        <li key={ingredient.id}>
+          <label>
+            Name:
+            <input type='text' value={ingredient.name} onChange={this.handleIngredientChange.bind(this, ingredient.id)} />
+            <input type='button' onClick={this.deleteIngredient.bind(this, ingredient.id)} value='delete' />
+          </label>
+        </li>
       )
     })
     return (
@@ -50,12 +52,15 @@ class RecipeEditor extends Component {
             Name:
             <input type='text' value={recipe.name} onChange={this.handleChange.bind(this, 'name')} />
           </label>
-          <label htmlFor='description'>Description:</label>
+
+          <label htmlFor='description'><h2>Description</h2></label>
           <textarea id='description' value={recipe.description} onChange={this.handleChange.bind(this, 'description')} />
-          <label htmlFor='ingredients'>Ingredients:</label>
-          {ingredients}
+          <h2>Ingredients</h2>
+          <ul>
+            {ingredients}
+          </ul>
           <input type='button' onClick={this.addIngredient.bind(this)} value='add ingredient' />
-          <label htmlFor='instructions'>Instructions:</label>
+          <label htmlFor='instructions'><h2>Instructions</h2></label>
           <textarea id='instructions' value={recipe.instructions} onChange={this.handleChange.bind(this, 'instructions')} />
         </form>
       </div>
