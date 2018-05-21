@@ -16,7 +16,12 @@ const getRecipe = ({ match }) => {
   if (typeof recipe !== 'undefined') {
     return <Recipe recipe={recipe} />
   }
-  return <p>not found</p>
+  return (
+    <div id='recipe'>
+      <h1>Recipe not found</h1>
+      Cannot view the recipe at the URL you requested. Maybe you deleted it or cleared out your browser cache? Copying links between browsers will not work because your recipes are only stored in the browser that you are using. They are not synced to a database.
+    </div>
+  )
 }
 
 const getRecipeEditor = ({ match }) => {
@@ -24,7 +29,12 @@ const getRecipeEditor = ({ match }) => {
   if (typeof recipe !== 'undefined') {
     return <RecipeEditor model={model} recipe={recipe} />
   }
-  return <p>editor not found</p>
+  return (
+    <div id='recipe'>
+      <h1>Recipe not found</h1>
+      Cannot edit the recipe at the URL you requested. Maybe you deleted it or cleared out your browser cache? Copying links between browsers will not work because your recipes are only stored in the browser that you are using. They are not synced to a database.
+    </div>
+  )
 }
 
 const App = () => (
