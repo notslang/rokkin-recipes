@@ -22,17 +22,17 @@
       "1 cup heavy cream",
       "1/4 cup chopped fresh cilantro"
     ],
-    "instructions": "In a large bowl, combine yogurt, lemon juice, 2 teaspoons cumin, cinnamon, cayenne, black pepper, ginger, and salt. Stir in chicken, cover, and refrigerate for 1 hour.\nPreheat a grill for high heat.\nLightly oil the grill grate. Thread chicken onto skewers, and discard marinade. Grill until juices run clear, about 5 minutes on each side.\nMelt butter in a large heavy skillet over medium heat. Saute garlic and jalapeno for 1 minute. Season with 2 teaspoons cumin, paprika, and 3 teaspoons salt. Stir in tomato sauce and cream. Simmer on low heat until sauce thickens, about 20 minutes. Add grilled chicken, and simmer for 10 minutes. Transfer to a serving platter, and garnish with fresh cilantro.\n"
+    "instructions": "In a large bowl, combine yogurt, lemon juice, 2 teaspoons cumin, cinnamon, cayenne, black pepper, ginger, and salt. Stir in chicken, cover, and refrigerate for 1 hour.\n\nPreheat a grill for high heat.\n\nLightly oil the grill grate. Thread chicken onto skewers, and discard marinade. Grill until juices run clear, about 5 minutes on each side.\n\nMelt butter in a large heavy skillet over medium heat. Saute garlic and jalapeno for 1 minute. Season with 2 teaspoons cumin, paprika, and 3 teaspoons salt. Stir in tomato sauce and cream. Simmer on low heat until sauce thickens, about 20 minutes. Add grilled chicken, and simmer for 10 minutes. Transfer to a serving platter, and garnish with fresh cilantro.\n\n"
   },
   {
     "name": "Peanut Butter Sandwich",
     "servings": 1,
-    "description": "",
+    "description": "It's like a PB&J, but without the J.\n\n![Exhibit A](http://scibosnian.com/wp-content/uploads/2017/12/Peanut_Butter_Sandwiches_6.jpg)",
     "ingredients": [
       "1 tablespoon creamy or crunchy peanut butter",
       "2 slices whole wheat sandwich bread"
     ],
-    "instructions": "Spread peanut butter evenly over 1 slice of bread.\nTop with remaining slice of bread.\nServe immediately."
+    "instructions": "Spread peanut butter evenly over 1 slice of bread.\n\nTop with remaining slice of bread.\n\nServe immediately."
   },
   {
     "name": "A Glass of Water",
@@ -45,6 +45,6 @@
       "water",
       "ice (optional)"
     ],
-    "instructions": "Preheat oven to 2800 degrees.\nIn a large bowl, combine all ingredients and mix until very evenly distributed.\nSlowly transfer to a thick stone casserole dish, pausing frequently to allow batch to heat up.\nBring to a boil, cover, and bake at 2800 degrees for 7 to 10 hours, or until batch is transparent and syrupy. Stir occasionally.\nWhen ready, open oven slowly and let the batch cool down to working temperature.\nAs batch begins to harden, form it into a receptacle shape. Careful -- molten glass will be hot. When desired form is reached, allow to cool to room temperature.\nFill with water and serve immediately."
+    "instructions": "Preheat oven to 2800 degrees.\n\nIn a large bowl, combine all ingredients and mix until very evenly distributed.\n\nSlowly transfer to a thick stone casserole dish, pausing frequently to allow batch to heat up.\n\nBring to a boil, cover, and bake at 2800 degrees for 7 to 10 hours, or until batch is transparent and syrupy. Stir occasionally.\n\nWhen ready, open oven slowly and let the batch cool down to working temperature.\n\nAs batch begins to harden, form it into a receptacle shape. Careful -- molten glass will be hot. When desired form is reached, allow to cool to room temperature.\n\nFill with water and serve immediately."
   }
 ]
