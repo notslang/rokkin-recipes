@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
 import {withRouter} from 'react-router'
+import TimeAgo from 'react-timeago'
 
 class RecipeIndex extends Component {
   getActiveRecipe () {
@@ -61,7 +62,9 @@ class RecipeIndex extends Component {
     var recipes = model.recipes.map((recipe) => (
       <li className='recipe-link' key={recipe.id}>
         <NavLink to={'/' + recipe.id} className={recipe.id === this.getActiveRecipe() ? 'active' : null}>
-          {recipe.name}
+          <span className='recipe-name'>
+            {recipe.name} <TimeAgo date={recipe.timeAdded * 1000 - 600} />
+          </span>
         </NavLink>
         <button className='delete' onClick={this.handleDelete.bind(this, recipe.id)}>
           delete

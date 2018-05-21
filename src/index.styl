@@ -56,10 +56,27 @@ recipe-button-width = 220px
       width: recipe-button-width
       overflow: hidden
       text-overflow: ellipsis
+      text-decoration: none
+      color: black
       border-left: transparent border-width solid
+      transition: border-left-color 0.25s ease
 
       &.active
-        border-left: active-color border-width solid
+        border-left-color: active-color
+
+      .recipe-name
+        // holds the name of the recipe and the time created
+        line-height: normal
+        display: inline-block
+        vertical-align: middle
+
+      time
+        display: block
+        font-size: 0.5em
+        color: #616161
+
+        &:before
+          content: 'created '
 
     button
       background: transparent
