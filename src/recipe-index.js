@@ -1,6 +1,6 @@
 'use strict'
 import React, {Component} from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import {withRouter} from 'react-router'
 
 class RecipeIndex extends Component {
@@ -14,7 +14,7 @@ class RecipeIndex extends Component {
 
     // NOTE: these are already sorted by time added
     var recipes = model.recipes.map((recipe) => (
-      <li key={recipe.id}>
+      <li className='recipe-link' key={recipe.id}>
         <NavLink to={'/' + recipe.id} activeClassName='active'>{recipe.name}</NavLink>
         <button className='delete' onClick={() => model.deleteRecipeById(recipe.id)}>
           delete
@@ -24,6 +24,7 @@ class RecipeIndex extends Component {
 
     return (
       <ul id='recipe-index'>
+        <li id='logo'><Link to='/' /></li>
         <li>
           <button id='new-recipe' onClick={() => this.handleNew()}>
             new recipe
