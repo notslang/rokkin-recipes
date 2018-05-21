@@ -81,13 +81,15 @@ class RecipeBook extends Component {
   }
 
   newRecipe () {
-    return this.addRecipe(
+    var newRecipe = this.addRecipe(
       'Untitled Recipe',
       0,
       'Add description here...',
       [],
-      'Add instructions here...'
+      'Add instructions here...\n\n1. The first step in my recipe\n2. The second step in my recipe\n'
     )
+    this.addIngredient(newRecipe.id, '1 cup first ingredient')
+    return newRecipe
   }
 
   getRecipeById (id) {
