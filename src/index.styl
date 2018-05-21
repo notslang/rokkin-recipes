@@ -19,6 +19,9 @@ html, body, #app, #app > div
   flex-grow: 1
   padding: 0 10px
 
+recipe-button-height = 70px
+recipe-button-width = 220px
+
 #recipe-index
   list-style-type: none
   padding: 0
@@ -40,7 +43,7 @@ html, body, #app, #app > div
 
     a, button
       margin: 5px 0
-      height: 70px
+      height: recipe-button-height
       line-height: @height - 20px
       padding: 10px 5px
       display: inline-block
@@ -50,7 +53,7 @@ html, body, #app, #app > div
     a
       border-width = 3px
       white-space: nowrap
-      width: 220px
+      width: recipe-button-width
       overflow: hidden
       text-overflow: ellipsis
       border-left: transparent border-width solid
@@ -69,6 +72,8 @@ html, body, #app, #app > div
 
     #new-recipe
       width: 100%
+      // recipe-button-height accounts for the size of the delete button
+      min-width: recipe-button-width + recipe-button-height
       box-sizing: border-box
       text-align: left
 
@@ -78,7 +83,7 @@ html, body, #app, #app > div
       background-repeat: no-repeat
       background-position: center
       background-size: 15px
-      min-width: 70px
+      min-width: recipe-button-height
       border-left: #ccc 1px solid
 
 #recipe-editor
