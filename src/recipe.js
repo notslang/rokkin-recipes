@@ -10,7 +10,7 @@ const Recipe = ({recipe}) => {
     <p key={i}>{step}</p>
   ))
   return (
-    <div className='recipe'>
+    <div id='recipe'>
       <Link to={'/edit/' + recipe.id}>edit</Link>
       <h1>{recipe.name}</h1>
       <p>Recipe added {new Date(recipe.timeAdded * 1000).toLocaleString()}</p>
