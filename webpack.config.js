@@ -42,6 +42,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
+      favicon: './src/icon/favicon32.png',
       template: './src/index.html',
       filename: './index.html',
       inlineSource: '.(js|css|styl)$' // embed all javascript and css inline
