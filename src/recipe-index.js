@@ -60,7 +60,9 @@ class RecipeIndex extends Component {
     // NOTE: these are already sorted by time added
     var recipes = model.recipes.map((recipe) => (
       <li className='recipe-link' key={recipe.id}>
-        <NavLink to={'/' + recipe.id} activeClassName='active'>{recipe.name}</NavLink>
+        <NavLink to={'/' + recipe.id} className={recipe.id === this.getActiveRecipe() ? 'active' : null}>
+          {recipe.name}
+        </NavLink>
         <button className='delete' onClick={this.handleDelete.bind(this, recipe.id)}>
           delete
         </button>
