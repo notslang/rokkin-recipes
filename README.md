@@ -1,9 +1,52 @@
 # ![RokkinRecipes](https://raw.githubusercontent.com/slang800/rokkin-recipes/master/src/logo.png)
 
-A recipe book themed coding challenge for RokkinCat's internship interview. This is built with React.js and Webpack.
-
+A recipe book themed coding challenge for RokkinCat's internship interview. This is built with React.js and Webpack. Also, I decided to try out react-router for handling the history API.
 
 ## Design process
+
+### Data model
+
+I started out with designing the data model for an individual recipe, based on the requirements from the coding challenge. That data model looks something like this:
+
+```js
+{
+  // a unique id for the recipe, useful as a React key, doesn't change ever
+  id: "abcd123",
+
+  // human readable recipe name (title)
+  name: "Recipe Name",
+
+  // like 1 paragraph that says what the recipe is in more detail
+  description: "A long description for the recipe...",
+
+  // how many servings the recipe makes
+  servings: 4,
+
+  // collection of ingredient objects
+  ingredients: [
+    {
+      // a unique id for the ingredient, also useful as a React key
+      id: "4123abc"
+
+      // human readable ingredient name
+      name: "tomato, broccoli, something like that",
+
+      // honestly, this could just be a part of the name
+      quantity: "1 cup"
+    },
+    {
+      // ... more ingredients ...
+    }
+  ],
+
+  // free form text describing how to prepare the recipe. this could have been
+  // an array of steps, but I've read enough cooking blogs to know that authors
+  // never stick to a nice rigid format when writing.
+  instructions: "A few paragraphs about how to prepare the recipe..."
+}
+```
+
+And then I worked on designing the UI that I wanted...
 
 ### UI concept
 
