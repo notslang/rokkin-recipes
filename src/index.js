@@ -9,6 +9,7 @@ import RecipeEditor from './recipe-editor'
 import NotFound from './not-found'
 
 require('./index.styl')
+require('normalize.css')
 
 var model = new RecipeBook()
 
