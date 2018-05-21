@@ -6,22 +6,18 @@ import RecipeIndex from './recipe-index'
 import RecipeBook from './recipe-book'
 import Recipe from './recipe'
 import RecipeEditor from './recipe-editor'
+import NotFound from './not-found'
 
 require('./index.styl')
 
 var model = new RecipeBook()
 
-const getRecipe = ({ match }) => {
+const getRecipeViewer = ({ match }) => {
   var recipe = model.getRecipeById(match.params.id)
   if (typeof recipe !== 'undefined') {
     return <Recipe recipe={recipe} />
   }
-  return (
-    <div id='recipe'>
-      <h1>Recipe not found</h1>
-      Cannot view the recipe at the URL you requested. Maybe you deleted it or cleared out your browser cache? Copying links between browsers will not work because your recipes are only stored in the browser that you are using. They are not synced to a database.
-    </div>
-  )
+  return <NotFound verb='view' />
 }
 
 const getRecipeEditor = ({ match }) => {
@@ -29,12 +25,7 @@ const getRecipeEditor = ({ match }) => {
   if (typeof recipe !== 'undefined') {
     return <RecipeEditor model={model} recipe={recipe} />
   }
-  return (
-    <div id='recipe'>
-      <h1>Recipe not found</h1>
-      Cannot edit the recipe at the URL you requested. Maybe you deleted it or cleared out your browser cache? Copying links between browsers will not work because your recipes are only stored in the browser that you are using. They are not synced to a database.
-    </div>
-  )
+  return <NotFound verb='edit' />
 }
 
 const App = () => (
@@ -43,7 +34,7 @@ const App = () => (
       <RecipeIndex model={model} />
       <Switch>
         <Route path='/edit/:id' component={getRecipeEditor} />
-        <Route path='/:id' component={getRecipe} />
+        <Route path='/:id' component={getRecipeViewer} />
       </Switch>
     </div>
   </Router>
