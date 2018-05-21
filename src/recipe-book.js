@@ -88,6 +88,13 @@ class RecipeBook extends Component {
   }
 
   deleteRecipeById (id) {
+    // TODO: move this outside of the model. we should be able to call this
+    // without a confirm dialog. maybe just switch it to having an undo? that
+    // would be nicer.
+    if (!window.confirm('Are you sure you want to delete that recipe?')) {
+      return
+    }
+
     this.recipes = filter(this.recipes, (r) => (r.id !== id))
     this.handleChange()
   }
