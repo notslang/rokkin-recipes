@@ -4,6 +4,7 @@ import {Component} from 'react'
 import uuid from 'uuid/v4'
 import orderBy from 'lodash.orderby'
 import find from 'lodash.find'
+import findIndex from 'lodash.findindex'
 import filter from 'lodash.filter'
 import clone from 'lodash.clone'
 
@@ -96,13 +97,6 @@ class RecipeBook extends Component {
   }
 
   deleteRecipeById (id) {
-    // TODO: move this outside of the model. we should be able to call this
-    // without a confirm dialog. maybe just switch it to having an undo? that
-    // would be nicer.
-    if (!window.confirm('Are you sure you want to delete that recipe?')) {
-      return
-    }
-
     this.recipes = filter(this.recipes, (r) => (r.id !== id))
     this.handleChange()
   }
@@ -152,6 +146,21 @@ class RecipeBook extends Component {
       return newRecipe
     })
     this.handleChange()
+  }
+
+  /**
+   * Find the next recipe id in the list, ordered in reverse-chronological order
+   * according to the time they were created. If there is no next then return
+   * null.
+   * @param {String} id Recipe id
+   * @return {String} The next recipe id
+   */
+  getNextRecipeIdInList (id) {
+    const index = findIndex(this.recipes, {id: id})
+    if (index === -1 || index === this.recipes.length - 1) {
+      return null
+    }
+    return this.recipes[index + 1].id
   }
 
   /**
