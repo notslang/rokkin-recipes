@@ -49,7 +49,7 @@ class RecipeEditor extends Component {
         <Link to={'/' + recipe.id}>close editor</Link>
         <form className='recipe-editor'>
           <input name='name' type='text' value={recipe.name} onChange={this.handleChange.bind(this, 'name')} />
-
+          <label>Serves: <input type='number' value={recipe.servings} onChange={this.handleChange.bind(this, 'servings')} /></label>
           <label htmlFor='description'><h2>Description</h2></label>
           <textarea id='description' value={recipe.description} onChange={this.handleChange.bind(this, 'description')} />
           <h2>Ingredients</h2>

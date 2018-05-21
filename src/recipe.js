@@ -12,6 +12,7 @@ const Recipe = ({recipe}) => {
       <Link to={'/edit/' + recipe.id}>edit</Link>
       <h1>{recipe.name}</h1>
       <p>Recipe added {new Date(recipe.timeAdded * 1000).toLocaleString()}</p>
+      <p>Serves {recipe.servings}</p>
       <h2>Description</h2>
       <div dangerouslySetInnerHTML={{__html: marked(recipe.description)}} />
       <h2>Ingredients</h2>
