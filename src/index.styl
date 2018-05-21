@@ -1,3 +1,5 @@
+active-color = #4d90f0
+
 #recipe-editor label
   display: block
 
@@ -10,12 +12,29 @@
   margin: 0
 
   li
-    padding: 10px 0
-    margin: 0 5px
-    height: 40px
-    line-height: @height
     border-bottom: 1px #ccc solid
+    white-space: nowrap
+
+    a, button
+      margin: 5px 0
+      line-height: 40px
+      height: 40px
+      padding: 10px 5px
+      display: inline-block
+      vertical-align: middle
+      box-sizing: content-box
 
     a
-      display: inline-block
-      min-width: 200px
+      white-space: nowrap
+      width: 200px
+      overflow: hidden
+      text-overflow: ellipsis
+      border-left: transparent 2px solid
+
+      &.active
+        border-left: active-color 2px solid
+
+    button
+      background: transparent
+      border: none
+      cursor: pointer
