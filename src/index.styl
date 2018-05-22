@@ -1,4 +1,5 @@
 active-color = #ff0000
+border-color = #ccc
 
 html
   color: #333
@@ -88,10 +89,10 @@ recipe-button-width = 220px
   padding: 0
   margin: 0
   flex-shrink: 0
-  border-right: 1px #ccc solid
+  border-right: 1px border-color solid
 
   li
-    border-bottom: 1px #ccc solid
+    border-bottom: 1px border-color solid
     white-space: nowrap
 
     &#logo
@@ -164,7 +165,7 @@ recipe-button-width = 220px
       background-position: center
       background-size: 15px
       min-width: recipe-button-height
-      border-left: #ccc 1px solid
+      border-left: border-color 1px solid
 
 #recipe-editor
   input[name="name"]
