@@ -15,7 +15,7 @@ class RecipeEditor extends Component {
 
   addIngredient () {
     var {model, recipe} = this.props
-    model.addIngredient(recipe.id, 'ingredient name...')
+    model.addIngredient(recipe.id, '')
   }
 
   handleIngredientChange (ingredientId, event) {
@@ -36,11 +36,8 @@ class RecipeEditor extends Component {
     var ingredients = recipe.ingredients.map((ingredient, i) => {
       return (
         <li key={ingredient.id}>
-          <label>
-            Name:
-            <input type='text' value={ingredient.name} onChange={this.handleIngredientChange.bind(this, ingredient.id)} />
-            <input type='button' onClick={this.deleteIngredient.bind(this, ingredient.id)} value='delete' />
-          </label>
+          <input placeholder='1 cup of Some Ingredient' type='text' value={ingredient.name} onChange={this.handleIngredientChange.bind(this, ingredient.id)} />
+          <input type='button' onClick={this.deleteIngredient.bind(this, ingredient.id)} value='delete' />
         </li>
       )
     })
