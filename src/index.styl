@@ -58,7 +58,7 @@ html, body, #app, #app > div
     top: 0
     right: 0
     height: 100%
-    width: 70px
+    width: 80px
     font-size: 0
     background-image: url('./icon/edit.svg')
     background-repeat: no-repeat
@@ -68,6 +68,11 @@ html, body, #app, #app > div
 #recipe-editor #recipe-header a
   background-size: 25px
   background-image: url('./icon/close.svg')
+  transition: background-color 0.5s ease
+
+  &:hover
+    background-color: lighten(#333, 10%)
+
 
 #recipe-body
   padding: 10px
@@ -139,7 +144,7 @@ recipe-button-width = 220px
       cursor: pointer
 
     button:hover, &.recipe-link a:hover, #new-recipe:hover
-        background-color: #ccc
+        background-color: darken(white, 10%)
         transition: background-color 0.5s ease
 
     #new-recipe
