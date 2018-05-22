@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import RecipeIndex from './recipe-index'
+import RecipeIndex from './components/recipe-index'
 import RecipeBook from './recipe-book'
-import Recipe from './recipe'
-import RecipeEditor from './recipe-editor'
-import NotFound from './not-found'
+import Recipe from './components/recipe'
+import RecipeEditor from './components/recipe-editor'
+import NotFound from './components/not-found'
 
 require('./index.styl')
 require('normalize.css')
