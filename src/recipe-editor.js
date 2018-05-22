@@ -46,9 +46,16 @@ class RecipeEditor extends Component {
     })
     return (
       <div id='recipe-editor'>
-        <Link to={'/' + recipe.id}>close editor</Link>
-        <form className='recipe-editor'>
-          <input name='name' type='text' value={recipe.name} onChange={this.handleChange.bind(this, 'name')} />
+        <div id='recipe-header'>
+          <h1>
+            <input name='name' type='text' value={recipe.name} onChange={this.handleChange.bind(this, 'name')} />
+            <span className='time-created'>
+              Recipe created {new Date(recipe.timeAdded * 1000).toLocaleString()}
+            </span>
+          </h1>
+          <Link to={'/' + recipe.id}>close editor</Link>
+        </div>
+        <div id='recipe-body'>
           <label>Serves: <input type='number' value={recipe.servings} onChange={this.handleChange.bind(this, 'servings')} /></label>
           <label htmlFor='description'><h2>Description</h2></label>
           <textarea id='description' value={recipe.description} onChange={this.handleChange.bind(this, 'description')} />
@@ -59,7 +66,7 @@ class RecipeEditor extends Component {
           <input type='button' onClick={this.addIngredient.bind(this)} value='add ingredient' />
           <label htmlFor='instructions'><h2>Instructions</h2></label>
           <textarea id='instructions' value={recipe.instructions} onChange={this.handleChange.bind(this, 'instructions')} />
-        </form>
+        </div>
       </div>
     )
   }

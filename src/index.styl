@@ -17,7 +17,45 @@ html, body, #app, #app > div
 
 #recipe, #recipe-editor
   flex-grow: 1
-  padding: 0 10px
+
+#recipe-header
+  background-color: black
+  color: white
+  position: relative
+  padding-right: 80px
+  height: 80px
+
+  .time-created
+    font-size: 10px
+    display: block
+    margin-top: 5px
+
+  h1, a
+    display: inline-block;
+
+  h1
+    margin: 0
+    padding: 10px
+    margin-top: 5px
+
+  a
+    position: absolute
+    top: 0
+    right: 0
+    height: 100%
+    width: 70px
+    font-size: 0
+    background-image: url('./icon/edit.svg')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: 30px
+
+#recipe-editor #recipe-header a
+  background-size: 25px
+  background-image: url('./icon/close.svg')
+
+#recipe-body
+  padding: 10px
 
 recipe-button-height = 70px
 recipe-button-width = 220px
@@ -105,9 +143,7 @@ recipe-button-width = 220px
 
 #recipe-editor
   input[name="name"]
-    font-size: 2em
     font-weight: bold
-    margin: 0.67em 0
 
   textarea
     width: 100%
