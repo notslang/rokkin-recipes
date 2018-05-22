@@ -13,7 +13,7 @@ import FILLER_CONTENT from './filler-content'
 
 // store all the recipes under a single key in localstorage... for simplicitly,
 // not performance
-const LOCALSTORAGE_KEY = 'rokkin-recipes'
+const LOCALSTORAGE_KEY = 'rokkin-recipes-v2'
 
 /**
  * Holds a list of Recipes and handles storing them in localstorage
