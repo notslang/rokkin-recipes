@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
 import {withRouter} from 'react-router'
 import TimeAgo from 'react-timeago'
+import Button from '@material-ui/core/Button'
 
 class RecipeIndex extends Component {
   getActiveRecipe () {
@@ -76,9 +77,9 @@ class RecipeIndex extends Component {
       <ul id='recipe-index'>
         <li id='logo'><Link to='/' /></li>
         <li>
-          <button id='new-recipe' onClick={() => this.handleNew()}>
+          <Button id='new-recipe' onClick={this.handleNew.bind(this)}>
             new recipe
-          </button>
+          </Button>
         </li>
         {recipes}
       </ul>
