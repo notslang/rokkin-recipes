@@ -2,6 +2,10 @@
 import React, {Component} from 'react'
 import clone from 'lodash.clone'
 import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import DeleteIcon from '@material-ui/icons/Delete'
+import IconButton from '@material-ui/core/IconButton'
 
 class RecipeEditor extends Component {
   handleChange (property, event) {
@@ -36,8 +40,15 @@ class RecipeEditor extends Component {
     var ingredients = recipe.ingredients.map((ingredient, i) => {
       return (
         <li key={ingredient.id}>
-          <input placeholder='1 cup of Some Ingredient' type='text' value={ingredient.name} onChange={this.handleIngredientChange.bind(this, ingredient.id)} />
-          <input type='button' onClick={this.deleteIngredient.bind(this, ingredient.id)} value='delete' />
+          <TextField
+            type='text'
+            value={ingredient.name}
+            onChange={this.handleIngredientChange.bind(this, ingredient.id)}
+            placeholder='1 cup of Some Ingredient'
+          />
+          <IconButton onClick={this.deleteIngredient.bind(this, ingredient.id)}>
+            <DeleteIcon />
+          </IconButton>
         </li>
       )
     })
@@ -53,16 +64,38 @@ class RecipeEditor extends Component {
           <Link to={'/' + recipe.id}>close editor</Link>
         </div>
         <div id='recipe-body'>
-          <label>Serves: <input type='number' value={recipe.servings} onChange={this.handleChange.bind(this, 'servings')} /></label>
+          <TextField
+            label='Serves'
+            type='number'
+            value={recipe.servings}
+            onChange={this.handleChange.bind(this, 'servings')}
+            margin='normal'
+          />
           <label htmlFor='description'><h2>Description</h2></label>
-          <textarea id='description' value={recipe.description} onChange={this.handleChange.bind(this, 'description')} />
+          <TextField
+            id='description'
+            multiline
+            fullWidth
+            value={recipe.description}
+            onChange={this.handleChange.bind(this, 'description')}
+          />
           <h2>Ingredients</h2>
-          <ul>
+          <ul id='ingredient-editor'>
             {ingredients}
+            <li>
+              <Button variant='raised' onClick={this.addIngredient.bind(this)}>
+                add ingredient
+              </Button>
+            </li>
           </ul>
-          <input type='button' onClick={this.addIngredient.bind(this)} value='add ingredient' />
           <label htmlFor='instructions'><h2>Instructions</h2></label>
-          <textarea id='instructions' value={recipe.instructions} onChange={this.handleChange.bind(this, 'instructions')} />
+          <TextField
+            id='instructions'
+            multiline
+            fullWidth
+            value={recipe.instructions}
+            onChange={this.handleChange.bind(this, 'instructions')}
+          />
         </div>
       </div>
     )

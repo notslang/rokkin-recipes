@@ -7,6 +7,8 @@
     "url": "https://github.com/slang800/rokkin-recipes/issues"
   },
   "dependencies": {
+    "@material-ui/core": "^1.0.0",
+    "@material-ui/icons": "^1.0.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
